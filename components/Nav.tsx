@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ImLinkedin, ImGithub } from "react-icons/im";
 const Nav: React.FC = (): JSX.Element => {
   return (
-    <nav className="flex items-center justify-between my-8">
+    <nav className="flex items-center justify-between mt-8 mb-16">
       <Link href="/">
         <a className="text-4xl font-bold text-charcoal">birk</a>
       </Link>
