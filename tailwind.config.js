@@ -1,7 +1,11 @@
 module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        charcoal: "#2C3E56",
+      },
+    },
   },
   plugins: [],
 };
