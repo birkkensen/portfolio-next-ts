@@ -55,6 +55,7 @@ const IntroImage: React.FC = (): JSX.Element => {
         height="150%"
         layout="responsive"
         objectFit="cover"
+        priority
       />
     </div>
   );

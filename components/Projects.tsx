@@ -1,12 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import porjectsJSON from "../public/projects.json";
+import projectsData from "../public/projects.json";
 const Projects: React.FC = (): JSX.Element => {
-  const myWork = porjectsJSON.projects;
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
       <ProjectsTitle />
-      {myWork.map((project) => {
+      {projectsData.map((project) => {
         return (
           <ProjectLink
             key={project.id}
@@ -38,7 +37,7 @@ interface ProjectProps {
 }
 const ProjectLink: React.FC<ProjectProps> = ({ id, name, image, objectFit }): JSX.Element => {
   return (
-    <Link href={`project/?id=${id}`}>
+    <Link href={`/project/${id}`}>
       <a className="group">
         <div className="relative no-underline overflow-hidden rounded-2xl shadow-xl">
           <Image
