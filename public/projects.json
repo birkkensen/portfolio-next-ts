@@ -1,88 +1,107 @@
 [
-  {
-    "id": 1,
-    "name": "Playlist visualisation using Spotify's API",
-    "description": "During one of our lessons, we had a guest lecturer from Spotify walk us through on how to work with their API to retrieve songs from a playlist and play samples of them. The website displays the album artwork, and when clicked it plays a sample of that song.",
-    "timeSpent": "Class project (one lesson)",
-    "languages": "HTML / CSS / Javascript (Node.js)",
-    "linkToProject": "https://github.com/birkkensen/playlist-visualisation",
-    "coverImage": "/images/cover/spotify.png",
-    "objectFit": "cover",
-    "showcase": ["/images/showcase/spotify-comp/home.png", "/images/showcase/spotify-comp/main.png"]
-  },
-  {
-    "id": 2,
-    "name": "Like Pong, but in space.",
-    "description": "When we were working on creating a game using Phaser, we had a lecture where we created the classic game Pong with some updated graphics. We made it as a multiplayer game but I wanted to be able to play it alone, so afterwards I rewrote some of the code and created my own computer bot to play against.",
-    "timeSpent": "Class project (one lesson)",
-    "languages": "Javascript (Phaser)",
-    "linkToProject": "https://github.com/birkkensen/SpacePong",
-    "coverImage": "/images/cover/spacePong.png",
-    "objectFit": "cover",
-    "showcase": [
-      "/images/showcase/spacepong-comp/home.png",
-      "/images/showcase/spacepong-comp/playing2.png",
-      "/images/showcase/spacepong-comp/gameover.png"
-    ]
-  },
-  {
-    "id": 3,
-    "name": "Food blog using Wordpress REST API",
-    "description": "This was my first project at Hyper Island. I created a personal food blog using the Wordpress as a CMS and their REST API to fetch the content. Making it so I easily could add blog posts in the future, without having to open the code again.",
-    "timeSpent": "Solo project (6 weeks)",
-    "languages": "HTML / CSS (SCSS) / Javascript",
-    "linkToProject": "https://github.com/birkkensen/RecipeBank",
-    "coverImage": "/images/cover/blog2.png",
-    "objectFit": "cover",
-    "showcase": [
-      "/images/showcase/blog-comp/home-min.png",
-      "/images/showcase/blog-comp/grid-min.png",
-      "/images/showcase/blog-comp/filter-min.png",
-      "/images/showcase/blog-comp/recept-min.png"
-    ]
-  },
-  {
-    "id": 4,
-    "name": "Radio app using Sveriges Radio API",
-    "description": "Radio app using the Sveriges Radio API. The goal with this project was to recreate a previous project I had made in vanilla Javascript to get a better understanding of how the code translates into React code. During this process I really wanted to focus on developing for mobile first and also maintainability.",
-    "timeSpent": "Solo project (3 weeks)",
-    "languages": "Javascript (React)",
-    "linkToProject": "https://github.com/birkkensen/SR-radio-remake-but-in-react",
-    "coverImage": "/images/cover/radio.png",
-    "objectFit": "contain",
-    "showcase": [
-      "/images/showcase/radio-comp/onePhoneDark.png",
-      "/images/showcase/radio-comp/twoPhonesDark.png"
-    ]
-  },
-  {
-    "id": 5,
-    "name": "Endless runner game",
-    "description": "This is one of my favourite group projects so far. Me and a classmate created an endless runner game using Phaser as the framework. It was fun because of how different it was from basic Javascript, we had to do a lot of debugging and error researching. Which I thought was a great learning experience ",
-    "timeSpent": "Group project (3 weeks)",
-    "languages": "Javascript (Phaser)",
-    "linkToProject": "https://github.com/birkkensen/Le-Sauteur",
-    "coverImage": "/images/cover/sauteur.png",
-    "objectFit": "cover",
-    "showcase": [
-      "/images/showcase/sauteur-comp/home.png",
-      "/images/showcase/sauteur-comp/playing.png",
-      "/images/showcase/sauteur-comp/gameover.png",
-      "/images/showcase/sauteur-comp/highscore.png"
-    ]
-  },
-  {
-    "id": 6,
-    "name": "Application website to Hyper Island",
-    "description": "This is the website I made when I applied to Hyper Island. I made it as a part of my application task to provide proof I had knowledge in HTML / CSS as this was one of the requirements. During this project, my main focus was responsiveness.",
-    "timeSpent": "Solo project (4 weeks)",
-    "languages": "HTML / CSS",
-    "linkToProject": "https://github.com/birkkensen/HyperIslandApplicationTask",
-    "coverImage": "/images/cover/application.png",
-    "objectFit": "cover",
-    "showcase": [
-      "/images/showcase/application-comp/home.png",
-      "/images/showcase/application-comp/article.png"
-    ]
-  }
+	{
+		"id": 1,
+		"name": "Playlist visualisation using Spotify's API",
+		"description": "During one of our lessons, we had a guest lecturer from Spotify walk us through on how to work with their API to retrieve songs from a playlist and play samples of them. The website displays the album artwork, and when clicked it plays a sample of that song.",
+		"timeSpent": "Class project (one lesson)",
+		"languages": "HTML / CSS / Javascript (Node.js)",
+		"linkToProject": "https://github.com/birkkensen/playlist-visualisation",
+		"coverImage": "/images/cover/spotify.png",
+		"objectFit": "cover",
+		"showcase": ["/images/showcase/spotify-comp/home.png", "/images/showcase/spotify-comp/main.png"]
+	},
+	{
+		"id": 2,
+		"name": "Like Pong, but in space.",
+		"description": "When we were working on creating a game using Phaser, we had a lecture where we created the classic game Pong with some updated graphics. We made it as a multiplayer game but I wanted to be able to play it alone, so afterwards I rewrote some of the code and created my own computer bot to play against.",
+		"timeSpent": "Class project (one lesson)",
+		"languages": "Javascript (Phaser)",
+		"linkToProject": "https://github.com/birkkensen/SpacePong",
+		"coverImage": "/images/cover/spacePong.png",
+		"objectFit": "cover",
+		"showcase": [
+			"/images/showcase/spacepong-comp/home.png",
+			"/images/showcase/spacepong-comp/playing2.png",
+			"/images/showcase/spacepong-comp/gameover.png"
+		]
+	},
+	{
+		"id": 3,
+		"name": "Food blog using Wordpress REST API",
+		"description": "This was my first project at Hyper Island. I created a personal food blog using the Wordpress as a CMS and their REST API to fetch the content. Making it so I easily could add blog posts in the future, without having to open the code again.",
+		"timeSpent": "Solo project (6 weeks)",
+		"languages": "HTML / CSS (SCSS) / Javascript",
+		"linkToProject": "https://github.com/birkkensen/RecipeBank",
+		"coverImage": "/images/cover/blog2.png",
+		"objectFit": "cover",
+		"showcase": [
+			"/images/showcase/blog-comp/home-min.png",
+			"/images/showcase/blog-comp/grid-min.png",
+			"/images/showcase/blog-comp/filter-min.png",
+			"/images/showcase/blog-comp/recept-min.png"
+		]
+	},
+	{
+		"id": 4,
+		"name": "Radio app using Sveriges Radio API",
+		"description": "Radio app using the Sveriges Radio API. The goal with this project was to recreate a previous project I had made in vanilla Javascript to get a better understanding of how the code translates into React code. During this process I really wanted to focus on developing for mobile first and also maintainability.",
+		"timeSpent": "Solo project (3 weeks)",
+		"languages": "Javascript (React)",
+		"linkToProject": "https://github.com/birkkensen/SR-radio-remake-but-in-react",
+		"coverImage": "/images/cover/radio.png",
+		"objectFit": "contain",
+		"showcase": [
+			"/images/showcase/radio-comp/onePhoneDark.png",
+			"/images/showcase/radio-comp/twoPhonesDark.png"
+		]
+	},
+	{
+		"id": 5,
+		"name": "Endless runner game",
+		"description": "This is one of my favourite group projects so far. Me and a classmate created an endless runner game using Phaser as the framework. It was fun because of how different it was from basic Javascript, we had to do a lot of debugging and error researching. Which I thought was a great learning experience ",
+		"timeSpent": "Group project (3 weeks)",
+		"languages": "Javascript (Phaser)",
+		"linkToProject": "https://github.com/birkkensen/Le-Sauteur",
+		"coverImage": "/images/cover/sauteur.png",
+		"objectFit": "cover",
+		"showcase": [
+			"/images/showcase/sauteur-comp/home.png",
+			"/images/showcase/sauteur-comp/playing.png",
+			"/images/showcase/sauteur-comp/gameover.png",
+			"/images/showcase/sauteur-comp/highscore.png"
+		]
+	},
+	{
+		"id": 6,
+		"name": "Application website to Hyper Island",
+		"description": "This is the website I made when I applied to Hyper Island. I made it as a part of my application task to provide proof I had knowledge in HTML / CSS as this was one of the requirements. During this project, my main focus was responsiveness.",
+		"timeSpent": "Solo project (4 weeks)",
+		"languages": "HTML / CSS",
+		"linkToProject": "https://github.com/birkkensen/HyperIslandApplicationTask",
+		"coverImage": "/images/cover/application.png",
+		"objectFit": "cover",
+		"showcase": [
+			"/images/showcase/application-comp/home.png",
+			"/images/showcase/application-comp/article.png"
+		]
+	},
+
+	{
+		"id": 7,
+		"name": "Lego figures e-commerce",
+		"description": "My favorit .",
+		"timeSpent": "Solo project (3 weeks)",
+		"languages": "Typescript (React, NodeJS) TailwindCSS, MongoDB",
+		"linkToProject": "https://github.com/birkkensen/data-interaction-backend",
+		"coverImage": "/images/cover/ecommerce.png",
+		"objectFit": "fill",
+		"showcase": [
+			"/images/showcase/data-interaction/products.png",
+			"/images/showcase/data-interaction/product.png",
+			"/images/showcase/data-interaction/cart.png",
+			"/images/showcase/data-interaction/checkout.png",
+			"/images/showcase/data-interaction/admin.png",
+			"/images/showcase/data-interaction/orders.png"
+		]
+	}
 ]

@@ -7,3 +7,8 @@
     font-family: "Montserrat", sans-serif;
   }
 }
+
+.remove-corner-flicker-on-hover {
+  -webkit-transform: translate3D(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}

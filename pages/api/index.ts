@@ -1,10 +1,8 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
-import data from "../../public/projects.json";
+import type { NextApiRequest, NextApiResponse } from 'next';
+// import clientPromise from '../../database/mongodb';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { method } = req;
-  if (method === "GET") {
-    return res.status(200).json(data);
-  }
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+	// const collection = (await clientPromise).db('portfolio').collection('projects');
+	// const projects = await collection.find({}).toArray();
+	// return res.status(200).json(projects);
 }
