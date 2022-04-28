@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
-import ShowcaseImages from '../../components/ProjectImages';
+import Image from 'next/image';
 import clientPromise from '../../database/mongodb';
 import { ObjectId } from 'mongodb';
 
@@ -15,7 +15,7 @@ interface IProject {
 	objectFit: string;
 	showcase: string[];
 }
-const Project: React.FC = ({
+const Project: React.FC<IProject> = ({
 	project,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
 	return (
@@ -47,11 +47,21 @@ const Project: React.FC = ({
 						<p className='leading-normal text-fadedBlack'>{project.description}</p>
 					</div>
 				</section>
-				<ShowcaseImages
-					images={project.showcase}
-					alt={project.name}
-					objectFit={project.objectFit}
-				/>
+				{project.showcase.map((image: string, i: number) => {
+					return (
+						<div key={i} className='mt-0 mx-5 mb-6 shadow-2xl bg-transparent rounded-2xl'>
+							<Image
+								className='rounded-2xl bg-transparent'
+								src={image}
+								alt={project.name}
+								objectFit={project.objectFit}
+								width={1140}
+								height={690}
+								layout='responsive'
+							/>
+						</div>
+					);
+				})}
 			</>
 		)
 	);
