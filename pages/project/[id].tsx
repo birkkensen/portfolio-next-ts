@@ -1,21 +1,10 @@
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Image from 'next/image';
 import clientPromise from '../../database/mongodb';
 import { ObjectId } from 'mongodb';
+import { IProject } from '../../interfaces';
 
-interface IProject {
-	_id: string;
-	id: number;
-	name: string;
-	description: string;
-	timeSpent: string;
-	languages: string;
-	linkToProject: string;
-	coverImage: string;
-	objectFit: string;
-	showcase: string[];
-}
-const Project: React.FC<IProject> = ({
+const Project: NextPage<IProject> = ({
 	project,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
 	return (
@@ -54,7 +43,7 @@ const Project: React.FC<IProject> = ({
 								className='rounded-2xl bg-transparent'
 								src={image}
 								alt={project.name}
-								objectFit={project.objectFit}
+								// objectFit={project.objectFit}
 								width={1140}
 								height={690}
 								layout='responsive'

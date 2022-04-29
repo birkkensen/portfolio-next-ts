@@ -1,4 +1,4 @@
-import Layout from '../components/Layout';
+import { Layout } from '../components';
 import '../styles/globals.css';
 import '@fontsource/montserrat/400.css';
 import '@fontsource/montserrat/700.css';

@@ -1,27 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
-interface Project {
-	_id: string;
-	id: number;
-	name: string;
-	description: string;
-	timeSpent: string;
-	languages: string;
-	linkToProject: string;
-	coverImage: string;
-	objectFit: any;
-	showcase: string[];
-}
-const Projects: React.FC<any> = ({ projects }): JSX.Element => {
-	console.log(projects);
+import { IProject } from '../interfaces';
+
+const Projects = ({ ...props }): JSX.Element => {
+	const { projects } = props;
 	return (
-		<div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
-			<h2 className='col-[1_/_-1] text-5xl mb-6 mt-5 text-charcoal font-bold'>
-				My learning process <br />
-				so far
-			</h2>
+		<>
 			{projects &&
-				projects.map((project: Project) => {
+				projects.map((project: IProject) => {
 					return (
 						<Link key={project._id} href={`/project/${project._id}`}>
 							<a className='group'>
@@ -43,7 +29,7 @@ const Projects: React.FC<any> = ({ projects }): JSX.Element => {
 						</Link>
 					);
 				})}
-		</div>
+		</>
 	);
 };
 
