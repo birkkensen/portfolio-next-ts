@@ -47,7 +47,8 @@ const Intro: React.FC = (): JSX.Element => {
 						height='150%'
 						layout='responsive'
 						objectFit='cover'
-						priority
+						priority={true}
+						placeholder='blur'
 					/>
 				</div>
 			</section>
