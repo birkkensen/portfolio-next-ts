@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import base64 from '../public/images/me/base64.json';
+
 const Intro: React.FC = (): JSX.Element => {
 	return (
 		<>
@@ -49,6 +51,7 @@ const Intro: React.FC = (): JSX.Element => {
 						objectFit='cover'
 						priority={true}
 						placeholder='blur'
+						blurDataURL={base64.image.data}
 					/>
 				</div>
 			</section>
