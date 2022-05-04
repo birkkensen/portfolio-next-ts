@@ -1,8 +1,9 @@
 import type { NextPage } from 'next';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import clientPromise from '../database/mongodb';
-import { Intro, Projects } from '../components';
 import { IProject } from '../interfaces';
+import clientPromise from '../database/mongodb';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { Intro, Projects } from '../components';
+
 const Home: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	const projects: IProject[] = data;
 	return (

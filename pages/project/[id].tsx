@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Image from 'next/image';
+import { v4 as uuidv4 } from 'uuid';
 import clientPromise from '../../database/mongodb';
 import { ObjectId } from 'mongodb';
 import { IProject } from '../../interfaces';
@@ -10,11 +11,13 @@ const Project: NextPage<IProject> = ({
 	return (
 		project && (
 			<>
-				<section className='flex flex-col lg:flex-row p-5'>
-					<div className='mt-3 mb-5 lg:w-1/3'>
-						<div className='h-1 w-5 rounded-sm mb-2 bg-charcoal'></div>
+				<section className='flex flex-col md:gap-y-5 lg:gap-x-5 lg:flex-row p-5'>
+					<div className='mt-3 mb-5 md:w-4/5 lg:w-1/4'>
+						<div className='h-1 w-5 rounded-sm mb-4 bg-charcoal'></div>
 						<p className='leading-normal text-fadedBlack'>
 							{project.name}
+							<br />
+							{project.timeSpent}
 							<br />
 							<a
 								className='text-mainBlue font-bold underline transition-all duration-300 ease-in-out hover:text-mainBlueHover focus:text-mainBlueHover'
@@ -26,19 +29,29 @@ const Project: NextPage<IProject> = ({
 							</a>
 						</p>
 					</div>
-					<div className='mt-3 mb-5 lg:w-1/3'>
-						<div className='h-1 w-5 rounded-sm mb-2 bg-charcoal'></div>
-						<p className='leading-normal text-fadedBlack'>{project.languages}</p>
-						<p>{project.timeSpent}</p>
+					<div className='mt-3 mb-5 md:w-4/5 lg:w-2/5'>
+						<div className='h-1 w-5 rounded-sm mb-4 bg-charcoal'></div>
+						<div className='flex flex-wrap gap-2'>
+							{project.languages.split(',').map((word: string) => {
+								return (
+									<p
+										key={uuidv4()}
+										className='leading-normal text-fadedBlack text-mainBlue font-medium bg-fadedBlue rounded-full px-3 py-1'
+									>
+										{word}
+									</p>
+								);
+							})}
+						</div>
 					</div>
-					<div className='mt-3 mb-5 lg:w-1/3'>
-						<div className=' h-1 w-5 rounded-sm mb-2 bg-charcoal'></div>
+					<div className='mt-3 mb-5 md:w-4/5 lg:w-2/5'>
+						<div className=' h-1 w-5 rounded-sm mb-4 bg-charcoal'></div>
 						<p className='leading-normal text-fadedBlack'>{project.description}</p>
 					</div>
 				</section>
 				{project.showcase.map((image: string, i: number) => {
 					return (
-						<div key={i} className='mt-0 mx-5 mb-6 shadow-2xl bg-transparent rounded-2xl'>
+						<div key={uuidv4()} className='mt-0 mx-5 mb-6 shadow-2xl bg-transparent rounded-2xl'>
 							<Image
 								className='rounded-2xl bg-transparent'
 								src={image}

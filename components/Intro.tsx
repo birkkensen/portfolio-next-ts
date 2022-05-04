@@ -12,8 +12,8 @@ const Intro: React.FC = (): JSX.Element => {
 						I&apos;m currently studying the Frontend Developer program at Hyper Island in Stockholm.
 						Now, I&apos;m looking for an internship, starting in September this year. So far
 						I&apos;ve done everything from creating a simple web page in just HTML / CSS, to making
-						web applications using React (like this website). I&apos;ve also worked a lot with
-						different APIs, Node.js and Phaser. I&apos;m looking forward to learning and
+						web applications using Next.js and Typescript (like this website). I&apos;ve also worked
+						a lot with different APIs, Node.js and Phaser. I&apos;m looking forward to learning and
 						contributing a lot more during an internship.
 						<br />
 						<br />I don&apos;t know what my career goal is. All I know is that I&apos;m 100% sure it
