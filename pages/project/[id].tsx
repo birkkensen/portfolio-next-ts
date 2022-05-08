@@ -69,10 +69,15 @@ const Project: NextPage<IProject> = ({
 				{blurData.length &&
 					project.images.imageUrls.map((image: string, i: number) => {
 						return (
-							<div key={uuidv4()} className='mt-0 mx-5 mb-6 shadow-2xl rounded-2xl bg-transparent'>
+							<div
+								key={uuidv4()}
+								className='mt-0 mx-5 mb-6 shadow-2xl rounded-2xl bg-transparent overflow-hidden'
+							>
 								<Image
 									className={
-										loading ? 'rounded-2xl' : 'transition-all duration-500 ease-linear rounded-2xl'
+										loading
+											? 'blur-lg rounded-2xl'
+											: 'blur-none transition-all duration-500 ease-linear rounded-2xl'
 									}
 									src={image}
 									alt={project.name}

@@ -46,7 +46,7 @@ const Intro: React.FC = (): JSX.Element => {
 						</a>
 					</div>
 				</div>
-				<div className='w-full sm:w-1/2 md:w-96'>
+				<div className='w-full sm:w-1/2 md:w-96 overflow-hidden rounded-2xl'>
 					{blurData && (
 						<Image
 							className={
