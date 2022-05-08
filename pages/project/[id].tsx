@@ -5,12 +5,20 @@ import clientPromise from '../../database/mongodb';
 import { ObjectId } from 'mongodb';
 import { IProject } from '../../interfaces';
 import useBlurData from '../../hooks/useBlurData';
+import { useState, useEffect } from 'react';
 
 const Project: NextPage<IProject> = ({
 	project,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
+	const [blurDataUrls] = useBlurData(project.images.blurHashes);
+	const [blurData, setBlurData] = useState<string[]>([]);
+	const [loading, setLoading] = useState<boolean>(true);
 	const stack = ['Frontend', 'Backend'];
-	const [blurDataUrls] = useBlurData(project.images.blurHash);
+
+	useEffect(() => {
+		if (blurData.length) return;
+		setBlurData(blurDataUrls);
+	}, [blurDataUrls, blurData]);
 	return (
 		project && (
 			<>
@@ -58,23 +66,27 @@ const Project: NextPage<IProject> = ({
 						<p className='leading-normal text-fadedBlack'>{project.description}</p>
 					</div>
 				</section>
-				{project.images.imageUrl.map((image: string, i: number) => {
-					return (
-						<div key={uuidv4()} className='mt-0 mx-5 mb-6 shadow-2xl bg-transparent rounded-2xl'>
-							<Image
-								className={'bg-transparent rounded-2xl'}
-								src={image}
-								alt={project.name}
-								// objectFit={project.objectFit}
-								width={1140}
-								height={690}
-								layout='responsive'
-								placeholder='blur'
-								blurDataURL={blurDataUrls[i]}
-							/>
-						</div>
-					);
-				})}
+				{blurData.length &&
+					project.images.imageUrls.map((image: string, i: number) => {
+						return (
+							<div key={uuidv4()} className='mt-0 mx-5 mb-6 shadow-2xl rounded-2xl bg-transparent'>
+								<Image
+									className={
+										loading ? 'rounded-2xl' : 'transition-all duration-500 ease-linear rounded-2xl'
+									}
+									src={image}
+									alt={project.name}
+									// objectFit={project.objectFit}
+									width={1140}
+									height={690}
+									layout='responsive'
+									placeholder='blur'
+									blurDataURL={blurData[i]}
+									onLoadingComplete={() => setLoading(false)}
+								/>
+							</div>
+						);
+					})}
 			</>
 		)
 	);

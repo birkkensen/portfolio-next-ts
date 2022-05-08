@@ -3,6 +3,7 @@ import { IProject } from '../interfaces';
 import clientPromise from '../database/mongodb';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { Intro, Projects } from '../components';
+import { v4 as uuidv4 } from 'uuid';
 
 const Home: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	const projects: IProject[] = data;
@@ -14,7 +15,8 @@ const Home: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>
 					My learning process <br />
 					so far
 				</h2>
-				<Projects projects={projects} />
+				{projects &&
+					projects.map((project: IProject) => <Projects key={uuidv4()} project={project} />)}
 			</div>
 		</>
 	);

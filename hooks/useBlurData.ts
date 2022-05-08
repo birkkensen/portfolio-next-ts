@@ -5,7 +5,7 @@ export default function useBlurData(
 	blurHashes: string[],
 	width: number = 160,
 	height: number = 120,
-	punch?: number
+	punch: number = 1
 ): string[][] {
 	const blurDataUrls = blurHashes.map((blurHash) => {
 		const pixels = decode(blurHash, width, height, punch);

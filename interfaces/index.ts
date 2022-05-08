@@ -6,7 +6,10 @@ export interface IProject {
 	duration: string;
 	tags: string;
 	links: string[];
-	coverImage: string;
+	coverImage: {
+		url: string;
+		blurHash: string;
+	};
 	objectFit: ImageProps['objectFit'];
 	images: {
 		imageUrl: string[];
