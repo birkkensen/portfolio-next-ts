@@ -1,6 +1,12 @@
 import Image from 'next/image';
-
+import useBlurData from '../hooks/useBlurData';
+import { useEffect, useState } from 'react';
 const Intro: React.FC = (): JSX.Element => {
+	const [blurDataUrls] = useBlurData(['L7H.Qb?b~q%MD%~q-;WBIUIUM{IU']);
+	const [blurData, setBlurData] = useState<string>('');
+	useEffect(() => {
+		setBlurData(blurDataUrls[0]);
+	}, [blurDataUrls]);
 	return (
 		<>
 			<section className='flex flex-wrap justify-between'>
@@ -40,16 +46,20 @@ const Intro: React.FC = (): JSX.Element => {
 					</div>
 				</div>
 				<div className='w-full sm:w-1/2 md:w-96'>
-					<Image
-						className='rounded-2xl md:w-96'
-						src='/images/me/meOnABike.jpeg'
-						alt='Me on my bike:)'
-						width='100%'
-						height='150%'
-						layout='responsive'
-						objectFit='cover'
-						priority={true}
-					/>
+					{blurData && (
+						<Image
+							className='rounded-2xl md:w-96'
+							src='/images/me/meOnABike.jpeg'
+							alt='Me on my bike:)'
+							width='100%'
+							height='150%'
+							layout='responsive'
+							objectFit='cover'
+							priority={true}
+							placeholder='blur'
+							blurDataURL={blurData}
+						/>
+					)}
 				</div>
 			</section>
 		</>

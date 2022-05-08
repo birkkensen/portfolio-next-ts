@@ -3,10 +3,13 @@ export interface IProject {
 	_id: string;
 	name: string;
 	description: string;
-	timeSpent: string;
-	languages: string;
-	linkToProject: string;
+	duration: string;
+	tags: string;
+	links: string[];
 	coverImage: string;
 	objectFit: ImageProps['objectFit'];
-	showcase: string[];
+	images: {
+		imageUrl: string[];
+		blurHash: string[];
+	};
 }

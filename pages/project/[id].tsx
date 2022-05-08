@@ -4,10 +4,13 @@ import { v4 as uuidv4 } from 'uuid';
 import clientPromise from '../../database/mongodb';
 import { ObjectId } from 'mongodb';
 import { IProject } from '../../interfaces';
+import useBlurData from '../../hooks/useBlurData';
 
 const Project: NextPage<IProject> = ({
 	project,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
+	const stack = ['Frontend', 'Backend'];
+	const [blurDataUrls] = useBlurData(project.images.blurHash);
 	return (
 		project && (
 			<>
@@ -17,28 +20,34 @@ const Project: NextPage<IProject> = ({
 						<p className='leading-normal text-fadedBlack'>
 							{project.name}
 							<br />
-							{project.timeSpent}
+							{project.duration}
 							<br />
-							<a
-								className='text-mainBlue font-bold underline transition-all duration-300 ease-in-out hover:text-mainBlueHover focus:text-mainBlueHover'
-								href={project.linkToProject}
-								target='_blank'
-								rel='noreferrer'
-							>
-								Project on GitHub
-							</a>
+							{project.links.map((link: string, i: number) => {
+								return (
+									<a
+										key={uuidv4()}
+										className='text-mainBlue font-bold underline transition-all duration-300 ease-in-out hover:text-mainBlueHover focus:text-mainBlueHover'
+										href={link}
+										target='_blank'
+										rel='noreferrer'
+									>
+										{project.links.length > 1 ? stack[i] : 'Project'} on GitHub
+										{i < 1 ? <br /> : ''}
+									</a>
+								);
+							})}
 						</p>
 					</div>
 					<div className='mt-3 mb-5 md:w-4/5 lg:w-2/5'>
 						<div className='h-1 w-5 rounded-sm mb-4 bg-charcoal'></div>
 						<div className='flex flex-wrap gap-2'>
-							{project.languages.split(',').map((word: string) => {
+							{project.tags.split(',').map((tag: string) => {
 								return (
 									<p
 										key={uuidv4()}
 										className='leading-normal text-fadedBlack text-mainBlue font-medium bg-fadedBlue rounded-full px-3 py-1'
 									>
-										{word}
+										{tag}
 									</p>
 								);
 							})}
@@ -49,17 +58,19 @@ const Project: NextPage<IProject> = ({
 						<p className='leading-normal text-fadedBlack'>{project.description}</p>
 					</div>
 				</section>
-				{project.showcase.map((image: string, i: number) => {
+				{project.images.imageUrl.map((image: string, i: number) => {
 					return (
 						<div key={uuidv4()} className='mt-0 mx-5 mb-6 shadow-2xl bg-transparent rounded-2xl'>
 							<Image
-								className='rounded-2xl bg-transparent'
+								className={'bg-transparent rounded-2xl'}
 								src={image}
 								alt={project.name}
 								// objectFit={project.objectFit}
 								width={1140}
 								height={690}
 								layout='responsive'
+								placeholder='blur'
+								blurDataURL={blurDataUrls[i]}
 							/>
 						</div>
 					);
@@ -79,7 +90,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	return { paths, fallback: false };
 };
 
-// This also gets called at build time
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const id: ObjectId = new ObjectId(params?.id as string);
 	const collection = (await clientPromise).db('portfolio').collection('projects');

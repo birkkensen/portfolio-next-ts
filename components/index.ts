@@ -1,7 +1,7 @@
 import Footer from './Footer';
 import Intro from './Intro';
 import Layout from './Layout';
-import Nav from './Nav';
+import Navbar from './Navbar';
 import Projects from './Projects';
 
-export { Footer, Intro, Layout, Nav, Projects };
+export { Footer, Intro, Layout, Navbar, Projects };
