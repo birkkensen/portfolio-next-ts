@@ -1,13 +1,16 @@
 import Image from 'next/image';
 import useBlurData from '../hooks/useBlurData';
 import { useEffect, useState } from 'react';
+
 const Intro: React.FC = (): JSX.Element => {
 	const [blurDataUrls] = useBlurData(['L7H.Qb?b~q%MD%~q-;WBIUIUM{IU']);
 	const [blurData, setBlurData] = useState<string>('');
 	const [loading, setLoading] = useState<boolean>(true);
+
 	useEffect(() => {
 		setBlurData(blurDataUrls[0]);
 	}, [blurDataUrls]);
+
 	return (
 		<>
 			<section className='flex flex-wrap justify-between'>

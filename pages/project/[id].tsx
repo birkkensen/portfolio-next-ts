@@ -1,11 +1,11 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
-import Image from 'next/image';
-import { v4 as uuidv4 } from 'uuid';
-import clientPromise from '../../database/mongodb';
+import { useState, useEffect } from 'react';
 import { ObjectId } from 'mongodb';
 import { IProject } from '../../interfaces';
+import { v4 as uuidv4 } from 'uuid';
+import Image from 'next/image';
+import clientPromise from '../../database/mongodb';
 import useBlurData from '../../hooks/useBlurData';
-import { useState, useEffect } from 'react';
 
 const Project: NextPage<IProject> = ({
 	project,
