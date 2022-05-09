@@ -16,6 +16,3 @@ export interface IProject {
 		blurHashes: string[];
 	};
 }
-export type PageProps = {
-	projects: IProject[];
-};
