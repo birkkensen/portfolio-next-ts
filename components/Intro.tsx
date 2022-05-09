@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 const Intro: React.FC = (): JSX.Element => {
 	const [blurDataUrls] = useBlurData(['L7H.Qb?b~q%MD%~q-;WBIUIUM{IU']);
 	const [blurData, setBlurData] = useState<string>();
+	const [loading, setLoading] = useState<boolean>(true);
 
 	useEffect(() => {
 		if (blurData) return;
@@ -33,7 +34,7 @@ const Intro: React.FC = (): JSX.Element => {
 					</p>
 					<div className='my-5 flex items-center'>
 						<a
-							className='font-bold text-white bg-charcoal px-5 py-3 rounded-lg opacity-100 transition-opacity duration-300 ease-in-out hover:opacity-90'
+							className='font-bold text-white bg-charcoal px-5 py-3 rounded-lg opacity-100 transition-all duration-300 ease-in-out hover:opacity-90 hover:rounded-3xl'
 							href='mailto:birk.kensen@hyperisland.se'
 						>
 							Contact
@@ -48,10 +49,16 @@ const Intro: React.FC = (): JSX.Element => {
 						</a>
 					</div>
 				</div>
-				<div className='w-full sm:w-1/2 md:w-96 overflow-hidden rounded-2xl'>
+				<div
+					className={
+						loading
+							? 'placeholder-blob w-full sm:w-1/2 md:w-96 overflow-hidden'
+							: 'w-full sm:w-1/2 md:w-96 overflow-hidden'
+					}
+				>
 					{blurData && (
 						<Image
-							className='rounded-2xl md:w-96 transition-all duration-500 ease-linear'
+							className='blob md:w-96 transition-all duration-500 ease-linear'
 							src='/images/me/meOnABike.jpeg'
 							alt='Me on my bike:)'
 							width='100%'
@@ -61,6 +68,7 @@ const Intro: React.FC = (): JSX.Element => {
 							priority={true}
 							placeholder='blur'
 							blurDataURL={blurData}
+							onLoadingComplete={() => setLoading(false)}
 						/>
 					)}
 				</div>

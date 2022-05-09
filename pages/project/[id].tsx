@@ -1,6 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useState, useEffect } from 'react';
-import { ObjectId } from 'mongodb';
 import { IProject } from '../../interfaces';
 import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
