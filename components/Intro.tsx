@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 const Intro: React.FC = (): JSX.Element => {
 	const [blurDataUrls] = useBlurData(['L7H.Qb?b~q%MD%~q-;WBIUIUM{IU']);
 	const [blurData, setBlurData] = useState<string>('');
-	const [loading, setLoading] = useState<boolean>(true);
 
 	useEffect(() => {
 		setBlurData(blurDataUrls[0]);
@@ -21,16 +20,15 @@ const Intro: React.FC = (): JSX.Element => {
 					</h2>
 					<p className=' text-gray-600'>
 						I&apos;m currently studying the Frontend Developer program at Hyper Island in Stockholm.
-						Now, I&apos;m looking for an internship, starting in September this year. So far
-						I&apos;ve done everything from creating a simple web page in just HTML / CSS, to making
-						web applications using Next.js and Typescript (like this website). I have worked a lot
-						with different APIs, Node.js and React. I&apos;m looking forward to learning and
-						contributing a lot more during an internship.
-						<br />
-						<br />I don&apos;t know what my career goal is. All I know is that I&apos;m 100% sure it
-						has to do with some sort of programming. Right now I&apos;m still exploring all the
-						possibilities code has to offer, all the different ways I can express my creativity with
-						it. Don&apos;t hesitate to contact me if you have any questions. :)
+						Now, I&apos;m looking for an internship, starting September this year. So far I&apos;ve
+						done everything from creating a simple web page in just HTML / CSS, to making web
+						applications using Next.js and Typescript (like this website). I have worked a lot with
+						different APIs, Node.js and React. I&apos;m looking forward to learn and contribute a
+						lot more during an internship. I don&apos;t know yet which my career goals are. All I
+						know is that I&apos;m 100% sure it has to do with some sort of programming. Right now,
+						I&apos;m still exploring all the possibilities code has to offer, and all the different
+						ways I can express my creativity with it. Don&apos;t hesitate to contact me if you wish
+						to know more about me.
 					</p>
 					<div className='my-5 flex items-center'>
 						<a
@@ -52,11 +50,7 @@ const Intro: React.FC = (): JSX.Element => {
 				<div className='w-full sm:w-1/2 md:w-96 overflow-hidden rounded-2xl'>
 					{blurData && (
 						<Image
-							className={
-								loading
-									? 'blur-lg'
-									: 'blur-none rounded-2xl md:w-96 transition-all duration-500 ease-linear'
-							}
+							className='rounded-2xl md:w-96 transition-all duration-500 ease-linear'
 							src='/images/me/meOnABike.jpeg'
 							alt='Me on my bike:)'
 							width='100%'
@@ -66,7 +60,6 @@ const Intro: React.FC = (): JSX.Element => {
 							priority={true}
 							placeholder='blur'
 							blurDataURL={blurData}
-							onLoadingComplete={() => setLoading(false)}
 						/>
 					)}
 				</div>

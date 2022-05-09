@@ -1,12 +1,11 @@
 import type { NextPage } from 'next';
-import { IProject } from '../interfaces';
+import { IProject, PageProps } from '../interfaces';
 import clientPromise from '../database/mongodb';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps } from 'next';
 import { Intro, Projects } from '../components';
 import { v4 as uuidv4 } from 'uuid';
 
-const Home: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
-	const projects: IProject[] = data;
+const Home: NextPage<PageProps> = ({ projects }) => {
 	return (
 		<>
 			<Intro />
@@ -26,7 +25,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	const collection = (await clientPromise).db('portfolio').collection('projects');
 	const projects = await collection.find({}).toArray();
 	return {
-		props: { data: JSON.parse(JSON.stringify(projects)) }, // will be passed to the page component as props
+		props: { projects: JSON.parse(JSON.stringify(projects)) },
 	};
 };
 

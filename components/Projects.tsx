@@ -2,22 +2,26 @@ import Link from 'next/link';
 import Image from 'next/image';
 import useBlurData from '../hooks/useBlurData';
 import React, { useState, useEffect } from 'react';
+import { IProject } from '../interfaces';
 
-const Projects = ({ ...props }): JSX.Element => {
-	const { project } = props;
+type PageProps = {
+	project: IProject;
+};
+const Projects: React.FC<PageProps> = ({ project }): JSX.Element => {
 	const [blurDataUrls] = useBlurData([project.coverImage.blurHash]);
 	const [blurData, setBlurData] = useState<string>();
 	useEffect(() => {
 		if (blurData) return;
 		setBlurData(blurDataUrls[0]);
 	}, [blurDataUrls, blurData]);
+
 	return (
 		<Link key={project._id} href={`/project/${project._id}`}>
 			<a className='group'>
 				<div className='relative no-underline overflow-hidden rounded-2xl shadow-2xl remove-corner-flicker-on-hover'>
 					{blurData && (
 						<Image
-							className='transform transition duration-500 group-hover:scale-105'
+							className='transform transition-all duration-500 group-hover:scale-105'
 							src={project.coverImage.url}
 							alt={project.name}
 							width={550}

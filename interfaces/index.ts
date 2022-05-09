@@ -12,7 +12,10 @@ export interface IProject {
 	};
 	objectFit: ImageProps['objectFit'];
 	images: {
-		imageUrl: string[];
-		blurHash: string[];
+		imageUrls: string[];
+		blurHashes: string[];
 	};
 }
+export type PageProps = {
+	projects: IProject[];
+};

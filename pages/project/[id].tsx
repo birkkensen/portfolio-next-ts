@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useState, useEffect } from 'react';
 import { ObjectId } from 'mongodb';
 import { IProject } from '../../interfaces';
@@ -7,12 +7,13 @@ import Image from 'next/image';
 import clientPromise from '../../database/mongodb';
 import useBlurData from '../../hooks/useBlurData';
 
-const Project: NextPage<IProject> = ({
-	project,
-}: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
+type PageProps = {
+	project: IProject;
+};
+
+const Project: NextPage<PageProps> = ({ project }): JSX.Element => {
 	const [blurDataUrls] = useBlurData(project.images.blurHashes);
 	const [blurData, setBlurData] = useState<string[]>([]);
-	const [loading, setLoading] = useState<boolean>(true);
 	const stack = ['Frontend', 'Backend'];
 
 	useEffect(() => {
@@ -74,11 +75,7 @@ const Project: NextPage<IProject> = ({
 								className='mt-0 mx-5 mb-6 shadow-2xl rounded-2xl bg-transparent overflow-hidden'
 							>
 								<Image
-									className={
-										loading
-											? 'blur-lg rounded-2xl'
-											: 'blur-none transition-all duration-500 ease-linear rounded-2xl'
-									}
+									className='blur-none transition-all duration-500 ease-linear rounded-2xl'
 									src={image}
 									alt={project.name}
 									// objectFit={project.objectFit}
@@ -87,7 +84,6 @@ const Project: NextPage<IProject> = ({
 									layout='responsive'
 									placeholder='blur'
 									blurDataURL={blurData[i]}
-									onLoadingComplete={() => setLoading(false)}
 								/>
 							</div>
 						);
@@ -104,7 +100,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 		params: { id: project._id.toString() },
 	}));
 
-	return { paths, fallback: 'blocking' };
+	return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
