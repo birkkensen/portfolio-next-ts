@@ -33,7 +33,7 @@ const Intro: React.FC = (): JSX.Element => {
 					<div className='my-5 flex items-center'>
 						<a
 							className='font-bold text-white bg-charcoal px-5 py-3 rounded-lg opacity-100 transition-opacity duration-300 ease-in-out hover:opacity-90'
-							href='mailto:birk.kensen@gmail.com'
+							href='mailto:birk.kensen@hyperisland.se'
 						>
 							Contact
 						</a>
