@@ -97,16 +97,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	const collection = (await clientPromise).db('portfolio').collection('projects');
 	const projects = await collection.find({}).toArray();
 	const paths = projects.map((project) => ({
-		params: { id: project._id.toString() },
+		params: { id: project.slug.toString() },
 	}));
 
 	return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-	const id: ObjectId = new ObjectId(params?.id as string);
+	// const id: ObjectId = new ObjectId(params?.id as string);
+	const id: string = params?.id as string;
+	const slug: string = id;
 	const collection = (await clientPromise).db('portfolio').collection('projects');
-	const project = await collection.findOne({ _id: id });
+	const project = await collection.findOne({ slug: { $regex: slug, $options: 'i' } });
 
 	return { props: { project: JSON.parse(JSON.stringify(project)) } };
 };

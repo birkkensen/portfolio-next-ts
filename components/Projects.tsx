@@ -16,7 +16,7 @@ const Projects: React.FC<PageProps> = ({ project }): JSX.Element => {
 	}, [blurDataUrls, blurData]);
 
 	return (
-		<Link key={project._id} href={`/project/${project._id}`}>
+		<Link key={project._id} href={`/project/${project.slug}`}>
 			<a className='group'>
 				<div className='relative no-underline overflow-hidden rounded-2xl shadow-2xl remove-corner-flicker-on-hover'>
 					{blurData && (

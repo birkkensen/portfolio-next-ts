@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
+import { GetStaticProps } from 'next';
 import { IProject } from '../interfaces';
 import clientPromise from '../database/mongodb';
-import { GetStaticProps } from 'next';
 import { Intro, Projects } from '../components';
 import { v4 as uuidv4 } from 'uuid';
 

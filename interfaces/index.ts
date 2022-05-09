@@ -2,6 +2,7 @@ import { ImageProps } from 'next/image';
 export interface IProject {
 	_id: string;
 	name: string;
+	slug: string;
 	description: string;
 	duration: string;
 	tags: string;

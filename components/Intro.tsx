@@ -4,11 +4,12 @@ import { useEffect, useState } from 'react';
 
 const Intro: React.FC = (): JSX.Element => {
 	const [blurDataUrls] = useBlurData(['L7H.Qb?b~q%MD%~q-;WBIUIUM{IU']);
-	const [blurData, setBlurData] = useState<string>('');
+	const [blurData, setBlurData] = useState<string>();
 
 	useEffect(() => {
+		if (blurData) return;
 		setBlurData(blurDataUrls[0]);
-	}, [blurDataUrls]);
+	}, [blurDataUrls, blurData]);
 
 	return (
 		<>
