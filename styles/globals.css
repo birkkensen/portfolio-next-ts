@@ -8,6 +8,19 @@
 	}
 }
 
+.animate-in {
+	animation: anim 0.3s 0s ease-out;
+}
+
+@keyframes anim {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 .remove-corner-flicker-on-hover {
 	-webkit-transform: translate3D(0, 0, 0);
 	transform: translate3d(0, 0, 0);
@@ -18,11 +31,22 @@
 .blob {
 	border-radius: 48% 52% 68% 32% / 42% 28% 72% 58%;
 	animation: blobber 90s 0s ease-in-out infinite;
+	overflow: hidden;
 }
 .blod:after {
 	content: '';
 	animation: blobber 90s 0s ease-in-out infinite;
 }
+
+/* @keyframes scale {
+	0% {
+		transform: scale(0.7);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+} */
 
 @keyframes blobber {
 	0% {

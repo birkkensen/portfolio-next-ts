@@ -1,32 +1,24 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { useState, useEffect } from 'react';
 import { IProject } from '../../interfaces';
 import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
 import clientPromise from '../../database/mongodb';
-import useBlurData from '../../hooks/useBlurData';
 
 type PageProps = {
 	project: IProject;
 };
 
 const Project: NextPage<PageProps> = ({ project }): JSX.Element => {
-	const [blurDataUrls] = useBlurData(project.images.blurHashes);
-	const [blurData, setBlurData] = useState<string[]>([]);
 	const stack = ['Frontend', 'Backend'];
-
-	useEffect(() => {
-		if (blurData.length) return;
-		setBlurData(blurDataUrls);
-	}, [blurDataUrls, blurData]);
 	return (
 		project && (
 			<>
+				<h1 className='text-3xl font-medium text-charcoal'>{project.name}</h1>
 				<section className='flex flex-col md:gap-y-5 lg:gap-x-5 lg:flex-row p-5'>
-					<div className='mt-3 mb-5 md:w-4/5 lg:w-1/4'>
+					<div className='mt-2 mb-5 md:w-4/5 lg:w-1/4'>
 						<div className='h-1 w-5 rounded-sm mb-4 bg-charcoal'></div>
 						<p className='leading-normal text-fadedBlack'>
-							{project.name}
+							{project.date}
 							<br />
 							{project.duration}
 							<br />
@@ -66,27 +58,26 @@ const Project: NextPage<PageProps> = ({ project }): JSX.Element => {
 						<p className='leading-normal text-fadedBlack'>{project.description}</p>
 					</div>
 				</section>
-				{blurData.length &&
-					project.images.imageUrls.map((image: string, i: number) => {
-						return (
-							<div
-								key={uuidv4()}
-								className='mt-0 mx-5 mb-6 shadow-2xl rounded-2xl bg-transparent overflow-hidden'
-							>
-								<Image
-									className='blur-none transition-all duration-500 ease-linear rounded-2xl'
-									src={image}
-									alt={project.name}
-									// objectFit={project.objectFit}
-									width={1140}
-									height={690}
-									layout='responsive'
-									placeholder='blur'
-									blurDataURL={blurData[i]}
-								/>
-							</div>
-						);
-					})}
+				{project.images.imageUrls.map((image: string, i: number) => {
+					return (
+						<div
+							key={uuidv4()}
+							className='mt-0 mx-5 mb-6 shadow-2xl rounded-xl bg-transparent overflow-hidden'
+						>
+							<Image
+								className='blur-none transition-all duration-500 ease-linear rounded-lg'
+								src={image}
+								alt={project.name}
+								// objectFit={project.objectFit}
+								width={1140}
+								height={690}
+								layout='responsive'
+								placeholder='blur'
+								blurDataURL={`data:image/jpeg;base64,${project.images.base64[i]}`}
+							/>
+						</div>
+					);
+				})}
 			</>
 		)
 	);

@@ -1,16 +1,9 @@
 import Image from 'next/image';
-import useBlurData from '../hooks/useBlurData';
-import { useEffect, useState } from 'react';
+import blurData from '../public/blurDataUrl.json';
+import { useState } from 'react';
 
 const Intro: React.FC = (): JSX.Element => {
-	const [blurDataUrls] = useBlurData(['L7H.Qb?b~q%MD%~q-;WBIUIUM{IU']);
-	const [blurData, setBlurData] = useState<string>();
 	const [loading, setLoading] = useState<boolean>(true);
-
-	useEffect(() => {
-		if (blurData) return;
-		setBlurData(blurDataUrls[0]);
-	}, [blurDataUrls, blurData]);
 
 	return (
 		<>
@@ -24,13 +17,13 @@ const Intro: React.FC = (): JSX.Element => {
 						I&apos;m currently studying the Frontend Developer program at Hyper Island in Stockholm.
 						Now, I&apos;m looking for an internship, starting September this year. So far I&apos;ve
 						done everything from creating a simple web page in just HTML / CSS, to making web
-						applications using Next.js and Typescript (like this website). I have worked a lot with
-						different APIs, Node.js and React. I&apos;m looking forward to learn and contribute a
-						lot more during an internship. I don&apos;t know yet which my career goals are. All I
-						know is that I&apos;m 100% sure it has to do with some sort of programming. Right now,
-						I&apos;m still exploring all the possibilities code has to offer, and all the different
-						ways I can express my creativity with it. Don&apos;t hesitate to contact me if you wish
-						to know more about me.
+						applications using Next.js and Typescript (like this website). <br />
+						<br />I have worked a lot with different APIs, Node.js and React. I&apos;m looking
+						forward to learn and contribute a lot more during an internship. I don&apos;t know yet
+						which my career goals are. All I know is that I&apos;m 100% sure it has to do with some
+						sort of programming. Right now, I&apos;m still exploring all the possibilities code has
+						to offer, and all the different ways I can express my creativity with it. Don&apos;t
+						hesitate to contact me if you wish to know more about me.
 					</p>
 					<div className='my-5 flex items-center'>
 						<a
@@ -53,24 +46,22 @@ const Intro: React.FC = (): JSX.Element => {
 					className={
 						loading
 							? 'placeholder-blob w-full sm:w-1/2 md:w-96 overflow-hidden'
-							: 'w-full sm:w-1/2 md:w-96 overflow-hidden'
+							: 'blob w-full sm:w-1/2 md:w-96 overflow-hidden'
 					}
 				>
-					{blurData && (
-						<Image
-							className='blob md:w-96 transition-all duration-500 ease-linear'
-							src='/images/me/meOnABike.jpeg'
-							alt='Me on my bike:)'
-							width='100%'
-							height='150%'
-							layout='responsive'
-							objectFit='cover'
-							priority={true}
-							placeholder='blur'
-							blurDataURL={blurData}
-							onLoadingComplete={() => setLoading(false)}
-						/>
-					)}
+					<Image
+						className='md:w-96'
+						src='/images/me/meOnABike.jpeg'
+						alt='Me on my bike:)'
+						width='384px'
+						height='576px'
+						layout='responsive'
+						objectFit='cover'
+						priority={true}
+						// placeholder='blur'
+						// blurDataURL={`data:image/jpeg;base64,${blurData.base64}`}
+						onLoadingComplete={() => setLoading(false)}
+					/>
 				</div>
 			</section>
 		</>
