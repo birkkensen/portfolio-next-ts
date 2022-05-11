@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import SvgIcon from './SvgIcon';
 import { IProject } from '../interfaces';
+import { v4 as uuidv4 } from 'uuid';
 
 type PageProps = {
 	project: IProject;
 };
+
 const Projects: React.FC<PageProps> = ({ project }): JSX.Element => {
 	return (
 		<Link key={project._id} href={`/project/${project.slug}`}>
@@ -21,8 +24,13 @@ const Projects: React.FC<PageProps> = ({ project }): JSX.Element => {
 						placeholder='blur'
 						blurDataURL={`data:image/jpeg;base64,${project.coverImage.base64}`}
 					/>
-					<div className='flex items-center absolute rounded-b-lg bottom-0 bg-gradient-to-b from-transparent to-black w-full h-2/5'>
-						<p className='font-bold pl-10 text-white w-3/5 md:w-5/6'>{project.name}</p>
+					<div className='flex flex-col gap-3 justify-end absolute rounded-b-lg bottom-0 bg-gradient-to-b from-transparent to-black w-full h-2/5'>
+						<p className='text-white font-bold text-md ml-4'>{project.name}</p>
+						<div className='flex gap-2 mb-4 ml-4'>
+							{project.coverImage.icons.map((icon) => (
+								<SvgIcon key={uuidv4()} name={icon} size={20} />
+							))}
+						</div>
 					</div>
 				</div>
 			</a>

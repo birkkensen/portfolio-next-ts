@@ -12,6 +12,7 @@ export interface IProject {
 		url: string;
 		blurHash: string;
 		base64: string;
+		icons: string[];
 	};
 	objectFit: ImageProps['objectFit'];
 	images: {
