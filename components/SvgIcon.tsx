@@ -10,6 +10,7 @@ import {
 	Typescript,
 	Nextjs,
 	Javascript,
+	Mocha,
 } from '../public/images/icons';
 
 interface props {
@@ -40,6 +41,8 @@ const SvgIcon: React.FC<props> = ({ name, size }) => {
 			return <Nextjs height={size} width={size} />;
 		case 'javascript':
 			return <Javascript height={size} width={size} />;
+		case 'mocha':
+			return <Mocha height={size} width={size} />;
 		default:
 			return <></>;
 	}

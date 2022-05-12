@@ -5,7 +5,8 @@ import '@fontsource/montserrat/400.css';
 import '@fontsource/montserrat/500.css';
 import '@fontsource/montserrat/700.css';
 import type { AppProps } from 'next/app';
-function MyApp({ Component, pageProps, router }: AppProps) {
+
+function MyApp({ Component, pageProps }: AppProps) {
 	// const variants = {
 	// 	hidden: { opacity: 0 },
 	// 	enter: { opacity: 1 },
@@ -20,7 +21,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 		// 				initial='hidden'
 		// 				animate='enter'
 		// 				exit='exit'
-		// 				transition={{ duration: 5 }}
+		// 				transition={{ duration: 0.7 }}
 		// 				variants={variants}
 		// 			>
 

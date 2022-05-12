@@ -9,6 +9,7 @@ import Tailwind from './tailwindcss.svg';
 import Typescript from './typescript.svg';
 import Nextjs from './nextjs.svg';
 import Javascript from './javascript.svg';
+import Mocha from './mocha.svg';
 
 export {
 	Css,
@@ -22,4 +23,5 @@ export {
 	Typescript,
 	Nextjs,
 	Javascript,
+	Mocha,
 };
