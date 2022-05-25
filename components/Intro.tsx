@@ -34,7 +34,7 @@ const Intro: React.FC = (): JSX.Element => {
 						</a>
 						<a
 							className='flex flex-col items-center justify-center w-40 h-10 ml-4 group transition-all duration-300 ease-in-out'
-							href='/resume/Birk-CV.pdf'
+							href='/resume/Resume-min.pdf'
 							download
 						>
 							<div className='text-charcoal font-bold'>Download CV</div>
