@@ -1,24 +1,29 @@
 import type { NextPage } from 'next';
+import Head from 'next/head';
 import { GetStaticProps } from 'next';
-import { IProject } from '../interfaces';
+import { ProjectDTO } from '../types';
 import clientPromise from '../database/mongodb';
-import { Intro, Projects } from '../components';
-import { v4 as uuidv4 } from 'uuid';
+import { Intro } from '../components';
+import Showcase from '../components/Showcase';
 
 type PageProps = {
-	projects: IProject[];
+	projects: ProjectDTO[];
 };
 const Home: NextPage<PageProps> = ({ projects }) => {
 	return (
 		<>
+			<Head>
+				<title>Portfolio | Birk Kensén</title>
+			</Head>
 			<Intro />
 			<section className='grid grid-cols-1 md:grid-cols-2 gap-10'>
 				<h2 className='col-[1_/_-1] text-5xl mb-6 mt-5 text-charcoal font-bold'>
 					My learning process <br />
 					so far
 				</h2>
-				{projects &&
-					projects.map((project: IProject) => <Projects key={uuidv4()} project={project} />)}
+				{projects?.map((project) => (
+					<Showcase key={project._id} project={project} />
+				))}
 			</section>
 		</>
 	);

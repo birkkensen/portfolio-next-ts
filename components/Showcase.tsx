@@ -1,16 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import SvgIcon from './SvgIcon';
-import { IProject } from '../interfaces';
-import { v4 as uuidv4 } from 'uuid';
+import { ProjectDTO } from '../types';
 
-type PageProps = {
-	project: IProject;
-};
+interface PageProps {
+	project: ProjectDTO;
+}
 
-const Projects: React.FC<PageProps> = ({ project }): JSX.Element => {
+const Showcase: React.FC<PageProps> = ({ project }) => {
 	return (
-		<Link key={project._id} href={`/project/${project.slug}`}>
+		<Link href={`/project/${project.slug}`}>
 			<a className='group'>
 				<div className='relative no-underline overflow-hidden rounded-lg shadow-2xl remove-corner-flicker-on-hover'>
 					<Image
@@ -28,7 +27,7 @@ const Projects: React.FC<PageProps> = ({ project }): JSX.Element => {
 						<p className='text-white font-bold text-md ml-4'>{project.name}</p>
 						<div className='flex gap-2 mb-4 ml-4'>
 							{project.coverImage.icons.map((icon) => (
-								<SvgIcon key={uuidv4()} name={icon} size={20} />
+								<SvgIcon key={icon} name={icon} size={20} />
 							))}
 						</div>
 					</div>
@@ -38,4 +37,4 @@ const Projects: React.FC<PageProps> = ({ project }): JSX.Element => {
 	);
 };
 
-export default Projects;
+export default Showcase;

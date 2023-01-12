@@ -2,7 +2,7 @@ import Image from 'next/image';
 import blurData from '../public/blurDataUrl.json';
 import { useState } from 'react';
 
-const Intro: React.FC = (): JSX.Element => {
+const Intro = () => {
 	const [loading, setLoading] = useState<boolean>(true);
 
 	return (
@@ -37,8 +37,8 @@ const Intro: React.FC = (): JSX.Element => {
 							href='/resume/Resume-min.pdf'
 							download
 						>
-							<div className='text-charcoal font-bold'>Download CV</div>
-							<div className='mt-2 w-11/12 h-[2px] rounded bg-charcoal transition-all duration-300 ease-in-out group-hover:w-0'></div>
+							<span className='text-charcoal font-bold'>Download CV</span>
+							<span className='mt-2 w-11/12 h-[2px] bg-charcoal transition-all duration-300 ease-in-out group-hover:w-0' />
 						</a>
 					</div>
 				</div>
@@ -58,8 +58,8 @@ const Intro: React.FC = (): JSX.Element => {
 						layout='responsive'
 						objectFit='cover'
 						priority={true}
-						// placeholder='blur'
-						// blurDataURL={`data:image/jpeg;base64,${blurData.base64}`}
+						placeholder='blur'
+						blurDataURL={`data:image/jpeg;base64,${blurData.base64}`}
 						onLoadingComplete={() => setLoading(false)}
 					/>
 				</div>

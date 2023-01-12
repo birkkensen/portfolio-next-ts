@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ImLinkedin, ImGithub } from 'react-icons/im';
-const Navbar: React.FC = (): JSX.Element => {
+const Navbar = () => {
 	return (
 		<nav className='flex items-center justify-between mt-8 mb-16'>
 			<Link href='/'>

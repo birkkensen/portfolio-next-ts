@@ -13,39 +13,28 @@ import {
 	Mocha,
 } from '../public/images/icons';
 
-interface props {
+interface Props {
 	name: string;
 	size: number;
 }
-const SvgIcon: React.FC<props> = ({ name, size }) => {
-	switch (name) {
-		case 'react':
-			return <React height={size} width={size} />;
-		case 'tailwind':
-			return <Tailwind height={size} width={size} />;
-		case 'typescript':
-			return <Typescript height={size} width={size} />;
-		case 'mongodb':
-			return <Mongodb height={size} width={size} />;
-		case 'nodejs':
-			return <Nodejs height={size} width={size} />;
-		case 'css':
-			return <Css height={size} width={size} />;
-		case 'sass':
-			return <Sass height={size} width={size} />;
-		case 'express':
-			return <Express height={size} width={size} />;
-		case 'html':
-			return <Html height={size} width={size} />;
-		case 'nextjs':
-			return <Nextjs height={size} width={size} />;
-		case 'javascript':
-			return <Javascript height={size} width={size} />;
-		case 'mocha':
-			return <Mocha height={size} width={size} />;
-		default:
-			return <></>;
-	}
+
+const icon: Record<string, any> = {
+	css: Css,
+	express: Express,
+	html: Html,
+	nodejs: Nodejs,
+	mongodb: Mongodb,
+	react: React,
+	sass: Sass,
+	tailwind: Tailwind,
+	typescript: Typescript,
+	nextjs: Nextjs,
+	javascript: Javascript,
+	mocha: Mocha,
+};
+const SvgIcon: React.FC<Props> = ({ name, size }) => {
+	const Icon = icon[name];
+	return <Icon height={size} width={size} />;
 };
 
 export default SvgIcon;
