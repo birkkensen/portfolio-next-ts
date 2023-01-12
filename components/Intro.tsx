@@ -13,18 +13,21 @@ const Intro = () => {
 						Hello, I&apos;m <br />
 						Birk Kensén
 					</h2>
-					<p className=' text-gray-600'>
-						I&apos;m currently studying the Frontend Developer program at Hyper Island in Stockholm.
-						Now, I&apos;m looking for an internship, starting September this year. So far I&apos;ve
-						done everything from creating a simple web page in just HTML / CSS, to making web
-						applications using Next.js and Typescript (like this website). <br />
-						<br />I have worked a lot with different APIs, Node.js and React. I&apos;m looking
-						forward to learn and contribute a lot more during an internship. I don&apos;t know yet
-						which my career goals are. All I know is that I&apos;m 100% sure it has to do with some
-						sort of programming. Right now, I&apos;m still exploring all the possibilities code has
-						to offer, and all the different ways I can express my creativity with it. Don&apos;t
-						hesitate to contact me if you wish to know more about me.
-					</p>
+
+					<div className='flex flex-col gap-4'>
+						<p className=' text-gray-600'>
+							I am soon graduating from Hyper Island. I am currently finishing up my internship at
+							G-Loot, where I have been working as a frontend developer. Throughout my time at
+							G-Loot, I have gained a strong understanding of technologies such as React and
+							TypeScript. I have also had the opportunity to lead the frontend team of interns,
+							giving me valuable experience in team management and leadership. I am now actively
+							seeking a full-time position as a frontend developer, where I can continue to grow and
+							develop my skills in this field and pursue my love for coding.
+						</p>
+						<p className=' text-gray-600'>
+							Don&apos;t hesitate to contact me if you wish to know more about me.
+						</p>
+					</div>
 					<div className='my-5 flex items-center'>
 						<a
 							className='font-bold text-white bg-charcoal px-5 py-3 rounded-lg opacity-100 transition-all duration-300 ease-in-out hover:opacity-90 hover:rounded-3xl'
