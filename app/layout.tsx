@@ -1,5 +1,6 @@
 import { Montserrat } from "next/font/google";
 import { ReactNode } from "react";
+import { Metadata } from "next";
 
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -7,7 +8,8 @@ import "./globals.css";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
-export const metadata = {
+export const metadata: Metadata = {
+  description: "Birk Kensén's portfolio",
   title: "Portfolio | Birk Kensén",
 };
 
