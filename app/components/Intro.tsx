@@ -50,7 +50,7 @@ function Intro() {
           <Image
             blurDataURL={`data:image/jpeg;base64,${blurData.base64}`}
             sizes="(max-width: 768px) 100vw, 768px"
-            src="/images/me/meOnABike.jpeg"
+            src="/images/me/meOnABike.webp"
             className="object-cover"
             alt="Me on my bike:)"
             placeholder="blur"
