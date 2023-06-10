@@ -3,7 +3,7 @@ import clientPromise from "../database/mongodb";
 import Intro from "./components/Intro";
 import { ProjectDTO } from "./types";
 
-export async function getData() {
+async function getData() {
   const collection = (await clientPromise)
     .db("portfolio")
     .collection("projects");

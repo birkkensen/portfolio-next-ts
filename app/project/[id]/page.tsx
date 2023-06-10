@@ -2,15 +2,15 @@ import clientPromise from "@/database/mongodb";
 import { ProjectDTO } from "@/app/types";
 import Image from "next/image";
 
-export const getData = async (id: string) => {
-  const slug: string = id;
+async function getData(id: string) {
+  const slug = id;
   const collection = (await clientPromise)
     .db("portfolio")
     .collection("projects");
   return (await collection.findOne({
     slug: { $options: "i", $regex: slug },
   })) as unknown as ProjectDTO;
-};
+}
 
 export default async function Project({ params }: { params: { id: string } }) {
   const project = await getData(params?.id);
