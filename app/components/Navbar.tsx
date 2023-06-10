@@ -2,7 +2,7 @@ import { ImLinkedin, ImGithub } from "react-icons/im";
 import Link from "next/link";
 function Navbar() {
   return (
-    <nav className="flex items-center justify-between mt-8 mb-16">
+    <nav className="mb-16 mt-8 flex items-center justify-between">
       <Link className="text-4xl font-bold text-charcoal" href="/">
         birk
       </Link>

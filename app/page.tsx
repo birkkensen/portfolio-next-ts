@@ -1,21 +1,20 @@
+import { Showcase } from "./components/Showcase";
 import clientPromise from "../database/mongodb";
-import Showcase from "./components/Showcase";
-import { Intro } from "./components";
+import Intro from "./components/Intro";
 import { ProjectDTO } from "./types";
-
-type PageProps = {
-  projects: ProjectDTO[];
-};
 
 export async function getData() {
   const collection = (await clientPromise)
     .db("portfolio")
     .collection("projects");
-  return await collection.find({}).sort({ order: -1 }).toArray();
+  return (await collection
+    .find({})
+    .sort({ order: -1 })
+    .toArray()) as unknown as ProjectDTO[];
 }
 
-export default function Home() {
-  // const projects = await getData();
+export default async function Home() {
+  const projects = await getData();
   return (
     <>
       <Intro />
@@ -24,9 +23,9 @@ export default function Home() {
           My learning process <br />
           so far
         </h2>
-        {/* {projects?.map((project) => (
+        {projects?.map((project) => (
           <Showcase key={project._id} project={project} />
-        ))} */}
+        ))}
       </section>
     </>
   );

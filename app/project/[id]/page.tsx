@@ -1,14 +1,19 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import clientPromise from "@/database/mongodb";
+import { ProjectDTO } from "@/app/types";
 import Image from "next/image";
 
-import clientPromise from "../../../database/mongodb";
-import { ProjectDTO } from "../../types";
-
-type PageProps = {
-  project: ProjectDTO;
+export const getData = async (id: string) => {
+  const slug: string = id;
+  const collection = (await clientPromise)
+    .db("portfolio")
+    .collection("projects");
+  return (await collection.findOne({
+    slug: { $options: "i", $regex: slug },
+  })) as unknown as ProjectDTO;
 };
 
-const Project: NextPage<PageProps> = ({ project }) => {
+export default async function Project({ params }: { params: { id: string } }) {
+  const project = await getData(params?.id);
   const stack = ["Frontend", "Backend"];
 
   return (
@@ -42,7 +47,7 @@ const Project: NextPage<PageProps> = ({ project }) => {
               {project.tags.split(",").map((tag) => {
                 return (
                   <p
-                    className="rounded-full bg-fadedBlue px-3 py-1 font-medium leading-normal text-fadedBlack text-mainBlue"
+                    className="rounded-full bg-fadedBlue px-3 py-1 text-sm font-medium leading-normal text-mainBlue"
                     key={tag}
                   >
                     {tag}
@@ -67,11 +72,9 @@ const Project: NextPage<PageProps> = ({ project }) => {
               <Image
                 className="rounded-lg blur-none transition-all duration-500 ease-linear"
                 blurDataURL={`data:image/jpeg;base64,${project.images.base64[i]}`}
-                layout="responsive"
                 placeholder="blur"
                 alt={project.name}
                 height={690}
-                // objectFit={project.objectFit}
                 width={1140}
                 src={image}
               />
@@ -81,31 +84,4 @@ const Project: NextPage<PageProps> = ({ project }) => {
       </>
     )
   );
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const collection = (await clientPromise)
-    .db("portfolio")
-    .collection("projects");
-  const projects = await collection.find({}).toArray();
-  const paths = projects.map((project) => ({
-    params: { id: project.slug.toString() },
-  }));
-
-  return { fallback: false, paths };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const id: string = params?.id as string;
-  const slug: string = id;
-  const collection = (await clientPromise)
-    .db("portfolio")
-    .collection("projects");
-  const project = await collection.findOne({
-    slug: { $options: "i", $regex: slug },
-  });
-
-  return { props: { project: JSON.parse(JSON.stringify(project)) } };
-};
-
-export default Project;
+}

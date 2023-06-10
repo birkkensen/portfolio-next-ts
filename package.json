@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource/montserrat": "^5.0.3",
+    "@radix-ui/react-aspect-ratio": "^1.0.3",
     "dotenv": "^16.1.4",
     "mongodb": "^5.6.0",
     "next": "^13.4.4",
@@ -20,7 +21,6 @@
     "sharp": "^0.32.1"
   },
   "devDependencies": {
-    "@svgr/webpack": "^6.5.1",
     "@types/node": "^18.16.17",
     "@types/react": "^18.2.9",
     "@types/react-dom": "^18.2.4",

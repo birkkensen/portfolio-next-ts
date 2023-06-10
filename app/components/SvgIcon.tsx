@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import {
   Javascript,
   Typescript,
@@ -33,8 +35,7 @@ const icon: Record<string, any> = {
   css: Css,
 };
 const SvgIcon: React.FC<Props> = ({ name, size }) => {
-  const Icon = icon[name];
-  return <Icon height={size} width={size} />;
+  return <Image src={icon[name].src} height={size} width={size} alt="Icon" />;
 };
 
 export default SvgIcon;
