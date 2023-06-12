@@ -1,19 +1,8 @@
-import clientPromise from "@/database/mongodb";
-import { ProjectDTO } from "@/app/types";
+import { projects } from "@/app/(data)";
 import Image from "next/image";
 
-async function getData(id: string) {
-  const slug = id;
-  const collection = (await clientPromise)
-    .db("portfolio")
-    .collection("projects");
-  return (await collection.findOne({
-    slug: { $options: "i", $regex: slug },
-  })) as unknown as ProjectDTO;
-}
-
-export default async function Project({ params }: { params: { id: string } }) {
-  const project = await getData(params?.id);
+export default function Project({ params }: { params: { id: string } }) {
+  const project = projects.find((project) => project.slug === params.id);
   const stack = ["Frontend", "Backend"];
 
   return (
