@@ -3,8 +3,6 @@ import Image from "next/image";
 
 export default function Project({ params }: { params: { id: string } }) {
   const project = projects.find((project) => project.slug === params.id);
-  const stack = ["Frontend", "Backend"];
-
   return (
     project && (
       <>
@@ -15,19 +13,11 @@ export default function Project({ params }: { params: { id: string } }) {
             <div className="flex flex-col leading-normal text-fadedBlack">
               <span>{project.date}</span>
               <span>{project.duration}</span>
-              {project.links.map((link, i) => {
-                return (
-                  <a
-                    className="font-bold text-mainBlue underline transition-all duration-300 ease-in-out hover:text-mainBlueHover focus:text-mainBlueHover"
-                    rel="noreferrer"
-                    target="_blank"
-                    href={link}
-                    key={link}
-                  >
-                    {project.links.length > 1 ? stack[i] : "Project"} on GitHub
-                  </a>
-                );
-              })}
+              {project.links.map((link) => (
+                <a className="font-bold text-mainBlue underline transition-all duration-300 ease-in-out hover:text-mainBlueHover focus:text-mainBlueHover" href={link.url} key={link.url}>
+                  {link.text}
+                </a>
+              ))}
             </div>
           </div>
           <div className="mb-5 mt-3 md:w-4/5 lg:w-2/5">

@@ -15,21 +15,18 @@ function Intro() {
 
         <div className="flex flex-col gap-4">
           <p className=" text-gray-600">
-            I&apos;m a frontend engineer based in Stockholm, Sweden, currently
-            working as a frontend developer at Pigello, where I contribute to
-            the development of a real estate management system.
+          I&apos;m a frontend engineer based in Stockholm, Sweden, currently working as a frontend developer at Pigello. I hold a YH degree from Hyper Island&apos;s frontend developer program, where I gained a solid understanding of web technologies like HTML, CSS, JavaScript, and responsive design principles.
           </p>
-          <p className="text-gray-600">
-            I hold a YH degree from Hyper Island&apos;s frontend developer program,
-            which equipped me with a solid understanding of modern web
-            technologies like HTML, CSS, JavaScript, and responsive design
-            principles. With a focus on user-centered design and UX/UI
+          <p className="text-gray-600">With a focus on user-centered design and UX/UI
             principles, I strive to create intuitive and accessible interfaces.
             I pay close attention to detail and value clean, modular code,
             aiming to deliver pixel-perfect designs that seamlessly merge
             aesthetics with functionality. Continuously learning and staying
             updated with industry trends, I&apos;m eager to collaborate with talented
             individuals and further enhance my frontend development skills.
+          </p>
+          <p className="text-gray-600">
+          Outside of work, I enjoy 3D printing, running, road biking, and cooking (especially the asian cuisine)
           </p>
           <p className=" text-gray-600">
             Don&apos;t hesitate to contact me if you wish to know more about me.
@@ -52,8 +49,8 @@ function Intro() {
           </a>
         </div>
       </div>
-      <div className="w-full animate-blob overflow-hidden sm:w-1/2 md:w-96">
-        <AspectRatio ratio={9 / 13}>
+      <div className="w-full sm:w-1/2 md:w-96">
+        <AspectRatio className="animate-blob overflow-hidden" ratio={9 / 16}>
           <picture className="object-cover">
             <source srcSet="/images/me/meOnABike.webp" type="image/webp" />
             <Image
@@ -62,7 +59,6 @@ function Intro() {
               src="/images/me/meOnABike.jpeg"
               className="object-cover"
               alt="Me on my bike:)"
-              typeof="image/webp"
               placeholder="blur"
               priority={true}
               fill

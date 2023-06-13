@@ -7,6 +7,7 @@ import Nextjs from "./nextjs.svg";
 import Nodejs from "./nodejs.svg";
 import Mocha from "./mocha.svg";
 import React from "./react.svg";
+import Figma from "./figma.svg";
 import Html from "./html.svg";
 import Sass from "./sass.svg";
 import Css from "./css.svg";
@@ -21,6 +22,7 @@ export {
   Nodejs,
   Mocha,
   React,
+  Figma,
   Sass,
   Html,
   Css,

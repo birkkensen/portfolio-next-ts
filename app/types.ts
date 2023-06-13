@@ -11,15 +11,17 @@ type Images = {
 
 export type ProjectDTO = {
   objectFit: "scale-down" | "contain" | "cover" | "none" | "fill";
+  links: {
+    text: string;
+    url: string;
+  }[];
   coverImage: CoverImage;
   description: string;
   duration: string;
-  links: string[];
   images: Images;
-  order: number;
-  tags: string;
-  slug: string;
-  date: string;
   name: string;
+  date: string;
+  slug: string;
+  tags: string;
   id: string;
 };

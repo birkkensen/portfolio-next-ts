@@ -10,6 +10,7 @@ import {
   Nodejs,
   Mocha,
   React,
+  Figma,
   Sass,
   Html,
   Css,
@@ -30,12 +31,13 @@ const icon: Record<string, any> = {
   nodejs: Nodejs,
   mocha: Mocha,
   react: React,
+  figma: Figma,
   sass: Sass,
   html: Html,
   css: Css,
 };
 const SvgIcon: React.FC<Props> = ({ name, size }) => {
-  return <Image src={icon[name].src} height={size} width={size} alt="Icon" />;
+  return <Image src={icon[name]?.src} height={size} width={size} alt="Icon" />;
 };
 
 export default SvgIcon;
