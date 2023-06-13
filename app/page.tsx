@@ -2,7 +2,7 @@ import { Showcase } from "./components/Showcase";
 import Intro from "./components/Intro";
 import { projects } from "./(data)";
 
-export default  function Home() {
+export default function Home() {
   return (
     <>
       <Intro />
@@ -11,9 +11,11 @@ export default  function Home() {
           My learning process <br />
           so far
         </h2>
-        {projects?.map((project) => (
-          <Showcase project={project} key={project.id}/>
-        ))}
+        {projects
+          ?.sort((a, b) => b.order - a.order)
+          .map((project) => (
+            <Showcase project={project} key={project.id} />
+          ))}
       </section>
     </>
   );
