@@ -1,20 +1,8 @@
 import { Showcase } from "./components/Showcase";
-import clientPromise from "../database/mongodb";
 import Intro from "./components/Intro";
-import { ProjectDTO } from "./types";
+import { projects } from "./(data)";
 
-async function getData() {
-  const collection = (await clientPromise)
-    .db("portfolio")
-    .collection("projects");
-  return (await collection
-    .find({})
-    .sort({ order: -1 })
-    .toArray()) as unknown as ProjectDTO[];
-}
-
-export default async function Home() {
-  const projects = await getData();
+export default function Home() {
   return (
     <>
       <Intro />
@@ -23,9 +11,11 @@ export default async function Home() {
           My learning process <br />
           so far
         </h2>
-        {projects?.map((project) => (
-          <Showcase key={project._id} project={project} />
-        ))}
+        {projects
+          ?.sort((a, b) => b.order - a.order)
+          .map((project) => (
+            <Showcase project={project} key={project.id} />
+          ))}
       </section>
     </>
   );

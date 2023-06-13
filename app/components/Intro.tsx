@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 
 import blurData from "../../public/blurDataUrl.json";
@@ -14,15 +15,21 @@ function Intro() {
 
         <div className="flex flex-col gap-4">
           <p className=" text-gray-600">
-            I am soon graduating from Hyper Island. I am currently finishing up
-            my internship at G-Loot, where I have been working as a frontend
-            developer. Throughout my time at G-Loot, I have gained a strong
-            understanding of technologies such as React and TypeScript. I have
-            also had the opportunity to lead the frontend team of interns,
-            giving me valuable experience in team management and leadership. I
-            am now actively seeking a full-time position as a frontend
-            developer, where I can continue to grow and develop my skills in
-            this field and pursue my love for coding.
+            I&apos;m a frontend engineer based in Stockholm, Sweden, currently
+            working as a frontend developer at Pigello, where I contribute to
+            the development of a real estate management system.
+          </p>
+          <p className="text-gray-600">
+            I hold a YH degree from Hyper Island&apos;s frontend developer program,
+            which equipped me with a solid understanding of modern web
+            technologies like HTML, CSS, JavaScript, and responsive design
+            principles. With a focus on user-centered design and UX/UI
+            principles, I strive to create intuitive and accessible interfaces.
+            I pay close attention to detail and value clean, modular code,
+            aiming to deliver pixel-perfect designs that seamlessly merge
+            aesthetics with functionality. Continuously learning and staying
+            updated with industry trends, I&apos;m eager to collaborate with talented
+            individuals and further enhance my frontend development skills.
           </p>
           <p className=" text-gray-600">
             Don&apos;t hesitate to contact me if you wish to know more about me.
@@ -37,7 +44,7 @@ function Intro() {
           </a>
           <a
             className="group ml-4 flex h-10 w-40 flex-col items-center justify-center transition-all duration-300 ease-in-out"
-            href="/resume/Resume-min.pdf"
+            href="/resume/cv_compressed.pdf"
             download
           >
             <span className="font-bold text-charcoal">Download CV</span>
@@ -47,16 +54,20 @@ function Intro() {
       </div>
       <div className="w-full animate-blob overflow-hidden sm:w-1/2 md:w-96">
         <AspectRatio ratio={9 / 13}>
-          <Image
-            blurDataURL={`data:image/jpeg;base64,${blurData.base64}`}
-            sizes="(max-width: 768px) 100vw, 768px"
-            src="/images/me/meOnABike.webp"
-            className="object-cover"
-            alt="Me on my bike:)"
-            placeholder="blur"
-            priority={true}
-            fill
-          />
+          <picture className="object-cover">
+            <source srcSet="/images/me/meOnABike.webp" type="image/webp" />
+            <Image
+              blurDataURL={`data:image/jpeg;base64,${blurData.base64}`}
+              sizes="(max-width: 768px) 100vw, 768px"
+              src="/images/me/meOnABike.jpeg"
+              className="object-cover"
+              alt="Me on my bike:)"
+              typeof="image/webp"
+              placeholder="blur"
+              priority={true}
+              fill
+            />
+          </picture>
         </AspectRatio>
       </div>
     </section>

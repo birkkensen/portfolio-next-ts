@@ -8,6 +8,7 @@
   ],
   "rules": {
     "import/order": "off",
-    "sort-imports": "off"
+    "sort-imports": "off",
+    "quote-props": ["error", "as-needed"]
   }
 }

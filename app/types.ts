@@ -1,12 +1,10 @@
 type CoverImage = {
-  blurHash: string;
   icons: string[];
   base64: string;
   url: string;
 };
 
 type Images = {
-  blurHashes: string[];
   imageUrls: string[];
   base64: string[];
 };
@@ -18,9 +16,10 @@ export type ProjectDTO = {
   duration: string;
   links: string[];
   images: Images;
+  order: number;
   tags: string;
   slug: string;
   date: string;
   name: string;
-  _id: string;
+  id: string;
 };
