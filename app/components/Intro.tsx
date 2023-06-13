@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
+
 import Image from "next/image";
 
 import blurData from "../../public/blurDataUrl.json";
@@ -15,12 +15,12 @@ function Intro() {
 
         <div className="flex flex-col gap-4">
           <p className=" text-gray-600">
-            I'm a frontend engineer based in Stockholm, Sweden, currently
+            I&apos;m a frontend engineer based in Stockholm, Sweden, currently
             working as a frontend developer at Pigello, where I contribute to
             the development of a real estate management system.
           </p>
           <p className="text-gray-600">
-            I hold a YH degree from Hyper Island's frontend developer program,
+            I hold a YH degree from Hyper Island&apos;s frontend developer program,
             which equipped me with a solid understanding of modern web
             technologies like HTML, CSS, JavaScript, and responsive design
             principles. With a focus on user-centered design and UX/UI
@@ -28,7 +28,7 @@ function Intro() {
             I pay close attention to detail and value clean, modular code,
             aiming to deliver pixel-perfect designs that seamlessly merge
             aesthetics with functionality. Continuously learning and staying
-            updated with industry trends, I'm eager to collaborate with talented
+            updated with industry trends, I&apos;m eager to collaborate with talented
             individuals and further enhance my frontend development skills.
           </p>
           <p className=" text-gray-600">
@@ -44,7 +44,7 @@ function Intro() {
           </a>
           <a
             className="group ml-4 flex h-10 w-40 flex-col items-center justify-center transition-all duration-300 ease-in-out"
-            href="/resume/Resume-min.pdf"
+            href="/resume/cv_compressed.pdf"
             download
           >
             <span className="font-bold text-charcoal">Download CV</span>
