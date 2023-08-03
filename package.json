@@ -21,7 +21,7 @@
     "sharp": "^0.32.1"
   },
   "devDependencies": {
-    "@types/node": "^18.16.17",
+    "@types/node": "^20.4.6",
     "@types/react": "^18.2.9",
     "@types/react-dom": "^18.2.4",
     "autoprefixer": "^10.4.14",
