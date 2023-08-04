@@ -4,7 +4,7 @@ import Image from "next/image";
 import blurData from "../../public/blurDataUrl.json";
 import { AspectRatio } from "./ui/aspect-ratio";
 
-function Intro() {
+export function Intro() {
   return (
     <section className="flex flex-wrap justify-between">
       <div className="w-full md:w-1/2">
@@ -73,5 +73,3 @@ function Intro() {
     </section>
   );
 }
-
-export default Intro;

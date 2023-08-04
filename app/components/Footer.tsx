@@ -1,4 +1,4 @@
-function Footer() {
+export function Footer() {
   return (
     <footer className="m-5 flex h-36 items-center justify-end">
       <a
@@ -20,5 +20,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;

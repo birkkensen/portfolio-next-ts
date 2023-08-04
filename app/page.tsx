@@ -1,5 +1,5 @@
 import { Showcase } from "./components/Showcase";
-import Intro from "./components/Intro";
+import { Intro } from "./components/Intro";
 import { projects } from "./(data)";
 
 export default function Home() {
