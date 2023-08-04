@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { AspectRatio } from "./ui/aspect-ratio";
 import { ProjectDTO } from "../types";
-import SvgIcon from "./SvgIcon";
+import { SvgIcon } from "./SvgIcon";
 
 interface PageProps {
   project: ProjectDTO;

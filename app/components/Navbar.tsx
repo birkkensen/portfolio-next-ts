@@ -1,6 +1,7 @@
 import { ImLinkedin, ImGithub } from "react-icons/im";
 import Link from "next/link";
-function Navbar() {
+
+export function Navbar() {
   return (
     <nav className="mb-16 mt-8 flex items-center justify-between">
       <Link className="text-4xl font-bold text-charcoal" href="/">
@@ -31,5 +32,3 @@ function Navbar() {
     </nav>
   );
 }
-
-export default Navbar;

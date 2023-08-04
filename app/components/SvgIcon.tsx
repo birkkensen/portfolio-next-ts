@@ -34,8 +34,6 @@ const icon: Record<string, any> = {
   html: Html,
   css: Css,
 };
-const SvgIcon: React.FC<Props> = ({ name, size }) => {
+export function SvgIcon ({ name, size }: Props) {
   return <Image src={icon[name].src} height={size} width={size} alt="Icon" />;
 };
-
-export default SvgIcon;
